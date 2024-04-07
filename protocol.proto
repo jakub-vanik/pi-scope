@@ -1,0 +1,53 @@
+syntax = "proto2";
+
+package protocol;
+
+message Request {
+  oneof request {
+    CalibrateReq calibrate = 1;
+    RelativeMoveReq relative_move = 2;
+    AbsoluteMoveReq absolute_move = 3;
+    ReleaseReq release = 4;
+  }
+}
+
+message CalibrateReq {
+  required bool direction = 1;
+  required uint32 limit = 2;
+}
+
+message RelativeMoveReq {
+  required int32 increment = 1;
+  optional float speed = 2;
+}
+
+message AbsoluteMoveReq {
+  required int32 position = 1;
+  optional float speed = 2;
+}
+
+message ReleaseReq {
+}
+
+message Response {
+  oneof response {
+    CalibrateResp calibrate = 1;
+    RelativeMoveResp relative_move = 2;
+    AbsoluteMoveResp absolute_move = 3;
+    ReleaseResp release = 4;
+  }
+}
+
+message CalibrateResp {
+  required bool success = 1;
+}
+
+message RelativeMoveResp {
+  required int32 position = 1;
+}
+
+message AbsoluteMoveResp {
+}
+
+message ReleaseResp {
+}

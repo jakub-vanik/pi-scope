@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <title>Mikroskop</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="script.js"></script>
+</head>
+
+<body onload="load();">
+  <div class="main">
+    <div class="preview" onmouseover="setupZoom(this);">
+      <a href="image/4056x3040/image.jpg" target="_blank">
+        <img src="preview/800x600/stream.jpg" />
+      </a>
+    </div>
+    <div class="controls">
+      <div class="calibrate">
+        <table>
+          <tr>
+            <td>
+              <form onsubmit="return calibrate(this);">
+                <input type="hidden" name="limit" value="130000" />
+                <input type="hidden" name="direction" value="0" />
+                <button type="submit">Kalibrace</button>
+              </form>
+            </td>
+            <td>
+              <form onsubmit="return release(this);">
+                <button type="submit">Uvolnění</button>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="absolute_move">
+        <form onsubmit="return absoluteMove(this);" id="absolute_move_form">
+          <table>
+            <tr>
+              <td>
+                <input type="number" name="position" value="30000" min="0" max="120000" id="position_input"
+                  class="position_input" />
+              </td>
+              <td>
+                <button type="submit">Nastav</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <div class="relative_move">
+        <table>
+          <tr>
+            <td>
+              <form onsubmit="return relativeMove(this);">
+                <input type="hidden" name="increment" value="-100" id="backward_increment_input" />
+                <button type="submit">-</button>
+              </form>
+            </td>
+            <td>
+              <select onchange="updateIncrements(this);">
+                <option value="50">50</option>
+                <option value="100" selected>100</option>
+                <option value="500">500</option>
+                <option value="1000">1000</option>
+              </select>
+            </td>
+            <td>
+              <form onsubmit="return relativeMove(this);">
+                <input type="hidden" name="increment" value="100" id="forward_increment_input" />
+                <button type="submit">+</button>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="camera_setup">
+      <form onsubmit="return cameraSetup(this);">
+        <table>
+          <tr>
+            <td>Exposure</td>
+            <td>Metering</td>
+            <td>Compensation</td>
+          </tr>
+          <tr>
+            <td>
+              <select name="exposure_mode" class="camera_input">
+                <option value="0">off</option>
+                <option value="1">auto</option>
+                <option value="2">night</option>
+                <option value="3">nightpreview</option>
+                <option value="4">backlight</option>
+                <option value="5">spotlight</option>
+                <option value="6">sports</option>
+                <option value="7">snow</option>
+                <option value="8">beach</option>
+                <option value="9">verylong</option>
+                <option value="10">fixedfps</option>
+                <option value="11">antishake</option>
+                <option value="12">fireworks</option>
+              </select>
+            </td>
+            <td>
+              <select name="exposure_metering_mode" class="camera_input">
+                <option value="0">average</option>
+                <option value="1">spot</option>
+                <option value="2">backlit</option>
+                <option value="3">matrix</option>
+              </select>
+            </td>
+            <td>
+              <input type="number" name="exposure_compensation" value="0.0" min="-10" max="10" class="camera_input" />
+            </td>
+          </tr>
+          <tr>
+            <td>AWB</td>
+            <td>Red</td>
+            <td>Blue</td>
+          </tr>
+          <tr>
+            <td>
+              <select name="awb_mode" class="camera_input">
+                <option value="0">off</option>
+                <option value="1">auto</option>
+                <option value="2">sunlight</option>
+                <option value="3">cloudy</option>
+                <option value="4">shade</option>
+                <option value="5">tungsten</option>
+                <option value="6">fluorescent</option>
+                <option value="7">incandescent</option>
+                <option value="8">flash</option>
+                <option value="9">horizon</option>
+                <option value="10">greyworld</option>
+              </select>
+            </td>
+            <td>
+              <input type="number" name="awb_gain_r" value="1.00" step="0.01" class="camera_input" />
+            </td>
+            <td>
+              <input type="number" name="awb_gain_b" value="1.00" step="0.01" class="camera_input" />
+            </td>
+          </tr>
+          <tr>
+            <td>ISO</td>
+            <td>Shutter</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" name="iso" value="0" class="camera_input" />
+            </td>
+            <td>
+              <input type="number" name="shutter_speed" value="0" class="camera_input" />
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <button type="submit">Nastav</button>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="functions">
+      <table>
+        <tr>
+          <td>
+            <a href="start_timelapse.html">Spustit časosběr</a>
+          </td>
+          <td>
+            <a href="stop_timelapse.html">Zastavit časosběr</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

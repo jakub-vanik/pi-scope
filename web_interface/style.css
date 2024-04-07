@@ -1,0 +1,75 @@
+body {
+  background-color: silver;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+  
+.main {
+  background-color: white;
+  margin: 0 auto 0 auto;
+  padding: 20px;
+  width: 1000px;
+}
+
+.preview {
+  background-color: gray;
+  border: 1px solid black;
+  height: 600px;
+  margin: 20px auto 20px auto;
+  width: 800px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 20px auto 20px auto;
+  width: 800px;
+}
+
+.calibrate {
+  margin: 0 auto 0 0;
+}
+
+.absolute_move {
+  margin: 0 auto 0 auto;
+}
+
+.position_input {
+  width: 100px;
+}
+
+.relative_move {
+  margin: 0 0 0 auto;
+}
+
+.camera_setup {
+  margin: 20px auto 20px auto;
+  width: 800px;
+}
+
+.camera_input {
+  margin: 0 20px 10px 0;
+  width: 200px;
+}
+
+.functions {
+  margin: 20px auto 20px auto;
+  width: 800px;
+}
+
+.timelapse_title {
+  font-size: 20px;
+  margin: 0 0 10px 0;
+}
+
+.timelapse_setup {
+  margin: 20px auto 20px auto;
+  width: 800px;
+}
+
+.timelapse_input {
+  margin: 0 20px 10px 0;
+  width: 200px;
+}

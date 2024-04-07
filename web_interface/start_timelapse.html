@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <title>Mikroskop - Spustit časosběr</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="script.js"></script>
+</head>
+
+<body onload="loadTimelapseConfig();">
+  <div class="main">
+    <div class="timelapse_setup">
+      <div class="timelapse_title">
+        Spustit časosběr?
+      </div>
+      <form onsubmit="return startTimelapse(this);">
+        <table>
+          <tr>
+            <td>Umístění</td>
+            <td>Interval</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" name="path" value="" class="timelapse_input" />
+            </td>
+            <td>
+              <input type="number" name="seconds" value="60" class="timelapse_input" />
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Šířka</td>
+            <td>Výška</td>
+            <td>Mód</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" name="width" value="4056" class="timelapse_input" />
+            </td>
+            <td>
+              <input type="number" name="height" value="3040" class="timelapse_input" />
+            </td>
+            <td>
+              <select name="mode" value="0" id="timelapse_mode" onchange="changeTimelapseMode();"
+                class="timelapse_input">
+                <option value="0">Jednoduchý</option>
+                <option value="1">Focus bracket</option>
+              </select>
+            </td>
+          </tr>
+          <tr name="focus_bracket_options">
+            <td>Počet rovin</td>
+            <td>Rozestup rovin</td>
+            <td>Základní rovina</td>
+          </tr>
+          <tr name="focus_bracket_options">
+            <td>
+              <input type="number" name="count" value="10" class="timelapse_input" />
+            </td>
+            <td>
+              <input type="number" name="increment" value="100" class="timelapse_input" />
+            </td>
+            <td>
+              <input type="number" name="base" value="30000" class="timelapse_input" />
+            </td>
+          </tr>
+          <tr name="focus_bracket_options">
+            <td>Rychlost pohybu</td>
+            <td>Skládání</td>
+            <td></td>
+          </tr>
+          <tr name="focus_bracket_options">
+            <td>
+              <input type="number" name="speed" value="1.00" step="0.01" class="timelapse_input" />
+            </td>
+            <td>
+              <select name="stack" value="0" id="timelapse_mode" class="timelapse_input">
+                <option value="0">Neskládat</option>
+                <option value="1">Skládat</option>
+              </select>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <button type="submit">Spustit</button>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
